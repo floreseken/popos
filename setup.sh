@@ -60,6 +60,12 @@ EOF
 sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
+# 6. Install ohmyposh
+echo "Installing Oh my posh..."
+sudo sh -c "curl -s https://ohmyposh.dev/install.sh | bash -s -- -d /usr/local/bin"
+oh-my-posh init bash --config ~/.cache/oh-my-posh/themes/quick-term.omp.json
+oh-my-posh font install meslo
+
 # 9. Cleanup
 echo "Cleaning up..."
 sudo apt autoremove -y
