@@ -37,6 +37,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 nvm install --lts
 nvm use --lts
+sudo ln -s $(which node) /usr/local/bin/node
 
 # 5. Install Docker
 echo "Installing Docker..."
