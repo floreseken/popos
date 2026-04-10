@@ -65,6 +65,18 @@ echo "Installing Oh my posh..."
 sudo sh -c "curl -s https://ohmyposh.dev/install.sh | bash -s -- -d /usr/local/bin"
 oh-my-posh init bash --config ~/.cache/oh-my-posh/themes/quick-term.omp.json
 oh-my-posh font install meslo
+PROFILE="$HOME/.bashrc"
+SNIPPET='eval "$(oh-my-posh init bash --config ~/.cache/oh-my-posh/themes/quick-term.omp.json)"'
+
+if grep -qF "$SNIPPET" "$PROFILE"; then
+    echo "oh-my-posh init already present in $PROFILE — skipping."
+else
+    echo "" >> "$PROFILE"
+    echo "$SNIPPET" >> "$PROFILE"
+    echo "Added oh-my-posh init to $PROFILE"
+fi
+
+exec bash
 
 # 9. Cleanup
 echo "Cleaning up..."
