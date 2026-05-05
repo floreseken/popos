@@ -91,6 +91,16 @@ echo 'export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools' >> ~/.bashrc
 source ~/.bashrc
 
 
+
+# 7. Install .NET framework
+echo "Installing Powershell"
+wget https://github.com/PowerShell/PowerShell/releases/download/v7.5.6/powershell_7.5.6-1.deb_amd64.deb
+sudo dpkg -i powershell_7.5.6-1.deb_amd64.deb
+# Resolve missing dependencies and finish the install (if necessary)
+sudo apt-get install -f
+# Delete the downloaded package file
+rm powershell_7.5.6-1.deb_amd64.deb
+
 # 9. Cleanup
 echo "Cleaning up..."
 sudo apt autoremove -y
